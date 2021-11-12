@@ -1,13 +1,14 @@
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    music.bigCrash.play()
     projectile = sprites.createProjectileFromSprite(img`
         . . . . . . . . 
         . . . . . . . . 
         . . . . . . . . 
         . . . . . . . . 
-        . . . 7 7 . . . 
-        . . . 7 7 . . . 
-        . . . 7 7 . . . 
-        . . . 7 7 . . . 
+        . . . 2 2 . . . 
+        . . . 2 2 . . . 
+        . . . 2 2 . . . 
+        . . . 2 2 . . . 
         `, ship, 0, -140)
     projectile.startEffect(effects.coolRadial, 100)
 })
@@ -24,15 +25,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let projectile: Sprite = null
 let ship: Sprite = null
-let asteroids = [
-sprites.space.spaceSmallAsteroid1,
-sprites.space.spaceSmallAsteroid0,
-sprites.space.spaceAsteroid0,
-sprites.space.spaceAsteroid1,
-sprites.space.spaceAsteroid4,
-sprites.space.spaceAsteroid3
-]
-ship = sprites.create(sprites.space.spaceRedShip, SpriteKind.Player)
+let asteroids = [sprites.builtin.dog0, sprites.builtin.dog1, sprites.builtin.dog2]
+ship = sprites.create(sprites.duck.duckHurt, SpriteKind.Player)
 ship.setStayInScreen(true)
 ship.bottom = 120
 controller.moveSprite(ship, 100, 100)
